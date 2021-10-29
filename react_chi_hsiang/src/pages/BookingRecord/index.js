@@ -10,8 +10,10 @@ import {Container,Row,Col,Stack,
  Button } from 'react-bootstrap';
 //使用圖片
 import FMemberIcon from '../MemberPage/conponents/MemberIcon';
-//PersonalIfo List
-//CommemtList
+
+//FShowBooking
+import FShowBooking from './conponents/ShowBooking';
+
 // -----------------------Import End----------------
 
 function FBookingRecordPage(){
@@ -28,14 +30,17 @@ function FBookingRecordPage(){
           {/* 評論資料 */}
           <div className="">
               <Stack gap={3}  className=" mx-auto ">
+                {/* 標題 */}
                 <div className=" mx-auto my-3">
                   <h1>我的訂單</h1>
                 </div>
-                <div className=" mx-auto iAmLine w-75">
-                 
-                </div>
-                <div className=" w-50 mx-auto">
-
+                {/* 一條線 */}
+                <div className=" mx-auto iAmLine w-75"></div>
+                {/* 訂單 */}
+                <div className=" w-75 mx-auto">
+                  <FShowBooking/>
+                  <FShowBooking/>
+                  <FShowBooking/>
                 </div>
               </Stack>
           </div>
