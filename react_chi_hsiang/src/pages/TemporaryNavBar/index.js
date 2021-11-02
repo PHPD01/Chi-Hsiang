@@ -9,9 +9,6 @@ const TemporaryNavBar = () =>{
  return (//BUTTONS
 
        <Form inline>
-         <Link to="/">
-             <Button variant="outline-success" >首頁</Button>
-         </Link>
          <Link to="/login">
          <Button variant="outline-success">登入</Button>
          </Link>
@@ -20,9 +17,6 @@ const TemporaryNavBar = () =>{
          </Link>
          <Link to="/memberpage">
          <Button variant="outline-success">會員頁</Button>
-         </Link>
-         <Link to="/bookingrecord">
-         <Button variant="outline-success">我的訂單</Button>
          </Link>
          <Link to="/starpage">
          <Button variant="outline-success">star</Button>
