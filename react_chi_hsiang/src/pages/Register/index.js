@@ -25,7 +25,12 @@ function FRegisterPage(){
   const [userPasswordReg,setUserPasswordReg]=  useState('');
   // const showInfo = () =>{console.log(userNameReg,userMailReg,userPasswordReg);}; //測試1.
   const addUsersTB = () =>{
-
+     Axios.post(
+       'http://localhost:3002/create',
+       {userNameReg:userNameReg, //傳給後端index.js key:key-value 
+        userMailReg:userMailReg,
+        userPasswordReg:userPasswordReg,
+      })
   };
   return (
   <Container>
