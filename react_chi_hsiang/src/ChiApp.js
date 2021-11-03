@@ -12,12 +12,12 @@ import FStarPage from './pages/star';
 import FRegisterPage from './pages/Register';
 
 
-const App = () =>{
+const ChiApp = () =>{
     return(
         <BrowserRouter>
             <TemporaryNavBar/>
             <Switch>
-                <Route exact path="/" component={TemporaryNavBar} />
+                {/* <Route exact path="/" component={TemporaryNavBar} /> */}
                 <Route path="/login" component={FLoginPage} />
                 <Route path="/registerpage" component={FRegisterPage} />
                 <Route path="/memberpage" component={FMemberPage} />
@@ -31,4 +31,4 @@ const App = () =>{
 
 
 
-export default App;
+export default ChiApp;

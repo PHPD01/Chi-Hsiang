@@ -7,6 +7,10 @@ import { Container,Row,Col,Stack,
  FormControl,
  Button, } from 'react-bootstrap';
 
+//  -----------------------IMPORT結束-------------------
+
+
+
 function FLoginPage(){
   return (
   <Container>
