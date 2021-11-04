@@ -26,11 +26,14 @@ function FRegisterPage(){
   // const showInfo = () =>{console.log(userNameReg,userMailReg,userPasswordReg);}; //測試1.
   const addUsersTB = () =>{
      Axios.post(
-       'http://localhost:3002/create',
+       'http://localhost:7000/create',
        {userNameReg:userNameReg, //傳給後端index.js key:key-value 
         userMailReg:userMailReg,
         userPasswordReg:userPasswordReg,
-      })
+      }).then(()=>{
+        console.log("Registered!!!");
+        alert("註冊成功!!");
+      });
   };
   return (
   <Container>
@@ -62,12 +65,10 @@ function FRegisterPage(){
                           }}/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="Register_password">
+            <Form.Group className="mb-3" controlId="ConfirmRegisterPassword">
               <Form.Label column="lg">確認密碼</Form.Label>
-              <Form.Control type="password" size="lg" placeholder="Password"  
-                          onChange={(e)=>{
-                            setUserPasswordReg(e.target.value);
-                          }}/>
+              <Form.Control type="password" size="lg" placeholder="Confirm Password"  
+                          />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
