@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
-import Axios from 'axios';
+import Axios from 'axios';//處理POST
 
 // 使用react-bootstrap 和CSS
 import './index.css';
