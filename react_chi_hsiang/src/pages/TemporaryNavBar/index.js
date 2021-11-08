@@ -4,8 +4,24 @@ import { Navbar,
  Button, } from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
-
+import Axios from 'axios'; //處理POST
 const TemporaryNavBar = () =>{
+  const userAuthenticated=()=>{
+    Axios.get('http://localhost:7000/authYN',{
+       headers:{"x-access-token":localStorage.getItem("token"),
+      },
+    }).then((response)=>{
+      if(!response.data.auth){
+
+
+      }
+      console.log(response);
+      console.log(response.data.message);
+
+    })
+  }
+
+
  return (//BUTTONS
 
        <Form inline>
@@ -16,7 +32,7 @@ const TemporaryNavBar = () =>{
          <Button variant="outline-success">註冊</Button>
          </Link>
          <Link to="/memberpage">
-         <Button variant="outline-success">會員頁</Button>
+         <Button variant="outline-success" onClick={userAuthenticated}>會員頁</Button>
          </Link>
          <Link to="/starpage">
          <Button variant="outline-success">star</Button>

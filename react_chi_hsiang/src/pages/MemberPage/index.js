@@ -16,10 +16,15 @@ import FMemberIcon from './conponents/MemberIcon.js';
 import FList from './conponents/List.js';
 //CommemtList
 import FCommemtList from './conponents/CommemtList.js';
+
+import Axios from 'axios'; //處理POST
+
 // -----------------------Import End----------------
 
 
 function FMemberPage(){
+
+
   return(
   <Container>
     {/* grid >>9 */}

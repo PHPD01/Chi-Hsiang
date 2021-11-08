@@ -45,7 +45,9 @@ const verifyJWT = (req,res,next)=>{
     } else{
         jwt.verify(token,"jwtSecret",(err,decoded)=>{
            if (err){
-               res.json({auth:false,message:"U failed to authenticate"})
+               res.json({auth:false,message:"U failed to authenticate"});
+
+
            }else{
                req.userId = decoded.id;   //userId自行命名的參數
                next();
@@ -56,6 +58,7 @@ const verifyJWT = (req,res,next)=>{
 app.get('/authYN',verifyJWT , (req,res)=>{ //verifyJWT:middleware 中介軟體
     res.send("Yo, u r authenticated!!");
 })
+
 
 // 接登入前端資料
 app.post('/login', (req, res) => {
