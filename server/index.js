@@ -72,7 +72,7 @@ app.post('/login', (req, res) => {
       
       
       if(result.length > 0){
-        res.send(result);
+        // res.send(result);
         // res.send("登入成功");
         //遷移資料庫後可能要改id->user_id
         const id =  result[0].id

@@ -30,7 +30,7 @@ function FLoginPage(){
       }else{
         // setLoginStatus(response.data[0].name);
         console.log(response.data);
-        alert(response.data[0].name+"，歡迎回來");
+        alert(response.data.result[0].name+"，歡迎回來");
         localStorage.setItem("token",response.data.token);
         setLoginStatus(true);
 
@@ -45,6 +45,8 @@ function FLoginPage(){
       },
     }).then((response)=>{
       console.log(response);
+              alert("歡迎驗證");
+
     })
   }
 
