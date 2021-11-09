@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import {useState} from 'react';
 import { Navbar,
  Form,
  Button, } from 'react-bootstrap';
@@ -6,18 +7,21 @@ import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import Axios from 'axios'; //處理POST
 const TemporaryNavBar = () =>{
+  const [memberId,setMemberId]= useState('');
+
   const userAuthenticated=()=>{
+
     Axios.get('http://localhost:7000/authYN',{
        headers:{"x-access-token":localStorage.getItem("token"),
       },
+      memberId:memberId,
     }).then((response)=>{
-      if(!response.data.auth){
-
-
+      if(response.data.auth == false){
+        document.location.href="http://localhost:3000/login";
       }
       console.log(response);
       console.log(response.data.message);
-
+      console.log(response.data.auth);
     })
   }
 
@@ -37,6 +41,7 @@ const TemporaryNavBar = () =>{
          <Link to="/starpage">
          <Button variant="outline-success">star</Button>
          </Link>
+         <Button onClick = {()=>{localStorage.clear();}}  variant="outline-success">Logout</Button>
        </Form>
 
  );

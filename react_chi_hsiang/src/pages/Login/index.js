@@ -32,8 +32,12 @@ function FLoginPage(){
         console.log(response.data);
         alert(response.data.result[0].name+"，歡迎回來");
         localStorage.setItem("token",response.data.token);
+        // localStorage.setItem("result",response.data.result[0].name);
+      localStorage.setItem("name",response.data.result[0].name);
+      localStorage.setItem("email",response.data.result[0].email);
+      localStorage.setItem("phone",response.data.result[0].phone);
         setLoginStatus(true);
-
+        
       }
       console.log(response);
       });
