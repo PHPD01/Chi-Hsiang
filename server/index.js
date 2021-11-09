@@ -12,6 +12,7 @@ const db = mysql.createConnection({
 });
 
 // 環境
+const seloginAPI = express.Router();
 const app=express();
 app.use(cors());
 app.use(express.json());  //讓express能處理json內容
@@ -46,7 +47,7 @@ const verifyJWT = (req,res,next)=>{
         jwt.verify(token,"jwtSecret",(err,decoded)=>{
            if (err){
                res.json({auth:false,message:"U failed to authenticate"});
-
+              //  return res.redirect('http://localhost:3000/login');   //ERR:ccess to XMLHttpRequest at 'http://localhost:3000/login' (redirected from 'http://localhost:7000/authYN') from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
            }else{
                req.userId = decoded.id;   //userId自行命名的參數
@@ -56,7 +57,19 @@ const verifyJWT = (req,res,next)=>{
     }
 }
 app.get('/authYN',verifyJWT , (req,res)=>{ //verifyJWT:middleware 中介軟體
-    res.send("Yo, u r authenticated!!");
+    // res.send("Yo, u r authenticated!!");
+    // const memberId = req.body.memberId;
+     db.query("SELECT * FROM users WHERE id=? ",
+       [req.userId],
+         (err, result) => {
+          if (err) {
+             console.log(err);
+           } else {
+             res.send(result);
+          }
+        }
+    );
+  
 })
 
 
