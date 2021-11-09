@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     user:"root",
     host:"localhost",
     password:"",
-    database:"test",
+    database:"foodie",
 });
 
 // 環境
@@ -16,9 +16,9 @@ const seloginAPI = express.Router();
 const app=express();
 app.use(cors());
 app.use(express.json());  //讓express能處理json內容
-app.listen(7000,()=>{
+app.listen(3001,()=>{
     console.log("FOXRunning Server");
-}); //確定連到PORT7000
+}); //確定連到PORT3001
 
 // 接註冊前端資料
 app.post('/create', (req, res) => {
@@ -59,7 +59,7 @@ const verifyJWT = (req,res,next)=>{
 app.get('/authYN',verifyJWT , (req,res)=>{ //verifyJWT:middleware 中介軟體
     // res.send("Yo, u r authenticated!!");
     // const memberId = req.body.memberId;
-     db.query("SELECT * FROM users WHERE id=? ",
+     db.query("SELECT * FROM users WHERE user_id=? ",
        [req.userId],
          (err, result) => {
           if (err) {

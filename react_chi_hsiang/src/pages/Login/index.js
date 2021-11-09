@@ -17,7 +17,7 @@ function FLoginPage(){
   // const showInfo = () =>{console.log(mailLog,passwordLog);}; //測試1.
   const [loginStatus,setLoginStatus]=useState(false);
   const loginFoodWeb =()=>{
-   Axios.post('http://localhost:7000/login',
+   Axios.post('http://localhost:3001/login',
     { 
       mailLog:mailLog,
       passwordLog:passwordLog,
@@ -44,7 +44,7 @@ function FLoginPage(){
   };
 
   const userAuthenticated=()=>{
-    Axios.get('http://localhost:7000/authYN',{
+    Axios.get('http://localhost:3001/authYN',{
        headers:{"x-access-token":localStorage.getItem("token"),
       },
     }).then((response)=>{

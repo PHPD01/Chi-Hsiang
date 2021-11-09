@@ -7,14 +7,14 @@ import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import Axios from 'axios'; //處理POST
 const TemporaryNavBar = () =>{
-  const [memberId,setMemberId]= useState('');
+  // const [memberId,setMemberId]= useState('');
 
   const userAuthenticated=()=>{
 
-    Axios.get('http://localhost:7000/authYN',{
+    Axios.get('http://localhost:3001/authYN',{
        headers:{"x-access-token":localStorage.getItem("token"),
       },
-      memberId:memberId,
+      // memberId:memberId,
     }).then((response)=>{
       if(response.data.auth == false){
         document.location.href="http://localhost:3000/login";

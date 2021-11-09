@@ -15,7 +15,7 @@ import {Container,Row,Col,Stack,
 function FList(){
 //   const [memberId,setMemberId]=useState('');
  const userAuthenticated=()=>{
-    Axios.get('http://localhost:7000/authYN',{
+    Axios.get('http://localhost:3001/authYN',{
        headers:{"x-access-token":localStorage.getItem("token"),},
     //    memberId:memberId,
     }).then((response)=>{

@@ -26,7 +26,7 @@ function FRegisterPage(){
   // const showInfo = () =>{console.log(userNameReg,userMailReg,userPasswordReg);}; //測試1.
   const addUsersTB = () =>{
      Axios.post(
-       'http://localhost:7000/create',
+       'http://localhost:3001/create',
        {userNameReg:userNameReg, //傳給後端index.js key:key-value 
         userMailReg:userMailReg,
         userPasswordReg:userPasswordReg,
