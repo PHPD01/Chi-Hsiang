@@ -12,7 +12,7 @@ const db = mysql.createConnection({
 });
 
 // 環境
-const seloginAPI = express.Router();
+// const seloginAPI = express.Router();
 const app=express();
 app.use(cors());
 app.use(express.json());  //讓express能處理json內容
